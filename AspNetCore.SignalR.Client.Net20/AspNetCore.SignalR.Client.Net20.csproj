@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AAD5BA33-E5DE-406A-BF8E-2B60239591F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AspNetCore.SignalR.Client.Net20</RootNamespace>
+    <AssemblyName>AspNetCore.SignalR.Client.Net20</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <Authors>wubin</Authors>
+    <Description>基于WebSocket4Net实现的AspNetCore.SignalR客户端，最低依赖 .net framework2.0，目前只实现了服务器与客户端的方法调用</Description>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\HubConnectionExtensions.cs" />
+    <Compile Include="Client\HubConnectionExtensions.InvokeAsync.cs" />
+    <Compile Include="Client\HubConnectionExtensions.InvokeAsyncGeneric.cs" />
+    <Compile Include="Client\HubConnectionExtensions.SendAsync.cs" />
+    <Compile Include="Client\Core\HubConnectionState.cs" />
+    <Compile Include="Transport\WebSocketsTransport.cs" />
+    <Compile Include="Connection\HttpConnectionFactory.cs" />
+    <Compile Include="Client\HubConnectionBuilderHttpExtensions.cs" />
+    <Compile Include="Client\Core\HubDelegate.cs" />
+    <Compile Include="Connection\AvailableTransport.cs" />
+    <Compile Include="Connection\HttpConnection.cs" />
+    <Compile Include="Connection\HttpTransports.cs" />
+    <Compile Include="Connection\HttpTransportType.cs" />
+    <Compile Include="Client\Core\HubConnection.cs" />
+    <Compile Include="Client\Core\HubConnectionBuilder.cs" />
+    <Compile Include="Connection\HttpConnectionOptions.cs" />
+    <Compile Include="Connection\NegotiationResponse.cs" />
+    <Compile Include="Connection\TransferFormat.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\Handlers\InvocationMessageHandler.cs" />
+    <Compile Include="Protocol\Handlers\CompletionMessageHandler.cs" />
+    <Compile Include="Protocol\Handlers\InvocationHandlerList.cs" />
+    <Compile Include="Protocol\Handlers\InvocationRequestCallBack.cs" />
+    <Compile Include="Protocol\Handlers\IMessageHandler.cs" />
+    <Compile Include="Protocol\Handlers\Subscription.cs" />
+    <Compile Include="Protocol\HandshakeProtocol.cs" />
+    <Compile Include="Protocol\Messages\CancelInvocationMessage.cs" />
+    <Compile Include="Protocol\Messages\CloseMessage.cs" />
+    <Compile Include="Protocol\Messages\CompletionMessage.cs" />
+    <Compile Include="Protocol\Messages\HandshakeRequestMessage.cs" />
+    <Compile Include="Protocol\Messages\HandshakeResponseMessage.cs" />
+    <Compile Include="Protocol\Messages\HubInvocationMessage.cs" />
+    <Compile Include="Protocol\Messages\HubMessage.cs" />
+    <Compile Include="Protocol\HubProtocolConstants.cs" />
+    <Compile Include="Protocol\IHubProtocol.cs" />
+    <Compile Include="Protocol\Messages\HubMethodInvocationMessage.cs" />
+    <Compile Include="Protocol\Messages\PingMessage.cs" />
+    <Compile Include="Protocol\Messages\StreamItemMessage.cs" />
+    <Compile Include="Protocol\NewtonsoftJsonHubProtocol.cs" />
+    <Compile Include="Protocol\ProtocolOption.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
